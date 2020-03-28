@@ -14,7 +14,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: echo
-      run: echo "start rust build"
+      run: |
+        echo "start rust build"
+        pwd
+        ls
     - uses: actions-rs/cargo@v1
       with:
         command: build
