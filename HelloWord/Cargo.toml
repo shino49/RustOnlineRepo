@@ -1,5 +1,5 @@
 [package]
-name = "HelloWorld"
+name = "HelloWord"
 version = "0.1.0"
 authors = ["ytz4178"]
 edition = "2018"
