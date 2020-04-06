@@ -18,11 +18,22 @@ jobs:
         echo "start rust build"
         pwd
         ls
-    - uses: actions-rs/cargo@v1
+    - name: build
+      uses: actions-rs/cargo@v1
       with:
         command: build
         args: --release --verbose
-    - uses: actions-rs/cargo@v1
+    - name: test
+      uses: actions-rs/cargo@v1
       with:
         command: test
         args: --verbose
+    - name: Firefox Send action step
+      uses: shooontan/firefox-send-action@v1
+      id: ffsend # output is
+      with:
+        file: fixtures
+        expiry_time: 1m
+        password: 123456
+    - name: Get the output url
+      run: echo ${{ steps.ffsend.outputs.url }}
